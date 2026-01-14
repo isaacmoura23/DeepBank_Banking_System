@@ -50,7 +50,6 @@ public class TokenService {
         tokenRepository.save(tokenEntity);
 
         return token;
-
     }
 
     public DecodedJWT verificarToken(String token) throws JWTVerificationException {

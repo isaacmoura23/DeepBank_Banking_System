@@ -21,8 +21,8 @@ public class AuthController {
     @Operation(summary = "gerarToken", description = "Rota responsavel por gerar o Token!")
     public ResponseEntity<?> gerarToken(String email, String senha) {
         try {
-            if (email.equals(email) && senha.equals(senha)) {
-                ResponseEntity.notFound().build();
+            if (email.equals("string") && senha.equals("string")) {
+                return ResponseEntity.notFound().build();
             }
             var lRetorno = tokenService.gerarToken(email);
             return ResponseEntity.ok(lRetorno);
