@@ -21,7 +21,7 @@ public abstract class User {
     @JoinColumn(name = "id")
     private Long id;
 
-    private int agencia;
+    private String agencia;
     private String  name;
     private String CPF;
     private String email;

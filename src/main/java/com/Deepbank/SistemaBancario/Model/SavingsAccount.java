@@ -23,7 +23,7 @@ public class SavingsAccount extends User {
         super();
     }
 
-    public SavingsAccount(Long id, int agencia, String name, String CPF, String email, String senha, BigDecimal balance, BigDecimal interestRate) {
+    public SavingsAccount(Long id, String agencia, String name, String CPF, String email, String senha, BigDecimal balance, BigDecimal interestRate) {
         super(id, agencia, name, CPF, email, senha, balance);
         this.interestRate = interestRate;
     }

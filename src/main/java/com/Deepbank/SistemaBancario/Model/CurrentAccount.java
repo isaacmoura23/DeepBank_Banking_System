@@ -23,7 +23,7 @@ public class CurrentAccount extends User{
         super();
     }
 
-    public CurrentAccount(Long id, int agencia, String name, String CPF, String email, String senha, BigDecimal balance, BigDecimal overdraftLimit) {
+    public CurrentAccount(Long id, String agencia, String name, String CPF, String email, String senha, BigDecimal balance, BigDecimal overdraftLimit) {
         super(id, agencia, name, CPF, email, senha, balance);
         this.overdraftLimit = overdraftLimit;
     }

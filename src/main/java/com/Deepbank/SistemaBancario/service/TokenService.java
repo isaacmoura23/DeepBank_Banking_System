@@ -40,8 +40,8 @@ public class TokenService {
         Algorithm algorithm = Algorithm.HMAC256(secret);
         String token = JWT.create()
                 .withIssuer(emissor)
-                .withIssuedAt(Instant.now())
-                .withExpiresAt(this.getDataExpiration())
+                .withSubject(subject)
+                .withExpiresAt(dataExpiration)
                 .sign(algorithm);
 
         Token tokenEntity = new Token();

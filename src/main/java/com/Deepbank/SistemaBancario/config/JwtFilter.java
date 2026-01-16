@@ -24,7 +24,7 @@ public class JwtFilter extends OncePerRequestFilter {
     public void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
 
         String path = request.getRequestURI();
-        if (path.equals("/auth/gerarToken")
+        if (path.contains("/auth/gerarToken")
         || path.startsWith("/swagger-ui")
         || path.startsWith("/v2/api-docs")
         || path.startsWith("/v3/api-docs")
@@ -44,16 +44,14 @@ public class JwtFilter extends OncePerRequestFilter {
 
                 String email = jwtValidador.getSubject();
 
-                UsernamePasswordAuthenticationToken authentication = new UsernamePasswordAuthenticationToken(email, null, Collections.emptyList());
-                SecurityContextHolder.getContext().setAuthentication(authentication);
+                UsernamePasswordAuthenticationToken auth = new UsernamePasswordAuthenticationToken(email, null, Collections.emptyList());
+                SecurityContextHolder.getContext().setAuthentication(auth);
 
             } catch (Exception e) {
-                response.setStatus(HttpServletResponse.SC_UNAUTHORIZED);
-                response.getWriter().println("Token invalido!");
+                System.out.println("Erro na validação do token: " + e.getMessage());
                 return;
             }
         }
         filterChain.doFilter(request, response);
-
     }
 }
