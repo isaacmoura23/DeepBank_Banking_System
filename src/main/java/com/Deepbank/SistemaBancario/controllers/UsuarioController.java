@@ -25,7 +25,13 @@ public class UsuarioController {
 
     @GetMapping
     public Collection<User> getUsers() {
-        return userRepository.findAll();
+        var users = userRepository.findAll();
+
+        for (var user : users) {
+            System.out.println(user);
+        }
+
+        return users;
     }
 
     @PostMapping

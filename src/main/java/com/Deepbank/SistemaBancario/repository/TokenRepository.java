@@ -8,6 +8,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface TokenRepository extends JpaRepository<Token, Long> {
 
-    boolean existsByTokenTrue(String token);
+    boolean existsByToken(String token);
 
 }

@@ -54,7 +54,7 @@ public class TokenService {
 
     public DecodedJWT verificarToken(String token) throws JWTVerificationException {
 
-        if (!tokenRepository.existsByTokenTrue(token)){
+        if (!tokenRepository.existsByToken(token)){
             throw new JWTVerificationException("token invalido");
         }
 

@@ -20,15 +20,12 @@ public class AuthController {
 
     @PostMapping("/gerarToken")
     @Operation(summary = "gerarToken", description = "Rota responsavel por gerar o Token!")
-    public ResponseEntity<?> gerarToken(String email, String senha) {
+    public ResponseEntity<?> gerarToken(@RequestParam String email, @RequestParam String senha) {
         try {
-            if (!(email.equals("string") && senha.equals("string"))) {
-                return ResponseEntity.notFound().build();
-            }
             var lRetorno = tokenService.gerarToken(email);
             return ResponseEntity.ok(lRetorno);
-        }catch (Exception e){
-            return ResponseEntity.badRequest().body(e.getMessage());
+        } catch (Exception e) {
+            return ResponseEntity.badRequest().body("Erro: " + e.getMessage());
         }
     }
 
